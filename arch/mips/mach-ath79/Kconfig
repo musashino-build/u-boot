@@ -58,6 +58,10 @@ config TARGET_AP152
 	bool "AP152 Reference Board"
 	select SOC_QCA956X
 
+config BOARD_NEC_AR9344_ATERM
+	bool "NEC Aterm series Boards (AR9344)"
+	select SOC_AR934X
+
 config BOARD_TPLINK_WDR4300
 	bool "TP-Link WDR4300 Board"
 	select SOC_AR934X
@@ -67,6 +71,7 @@ endchoice
 source "board/qca/ap121/Kconfig"
 source "board/qca/ap143/Kconfig"
 source "board/qca/ap152/Kconfig"
+source "board/nec/ar9344_aterm/Kconfig"
 source "board/tplink/wdr4300/Kconfig"
 
 endmenu
