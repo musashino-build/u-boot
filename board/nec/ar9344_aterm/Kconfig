@@ -1,0 +1,30 @@
+if BOARD_NEC_AR9344_ATERM
+
+config SYS_VENDOR
+	default "nec"
+
+config SYS_SOC
+	default "ath79"
+
+config SYS_BOARD
+	default "ar9344_aterm"
+
+config SYS_CONFIG_NAME
+	default "nec_ar9344_aterm"
+
+config TEXT_BASE
+	default 0x9f000000
+
+config SYS_DCACHE_SIZE
+	default 32768
+
+config SYS_DCACHE_LINE_SIZE
+	default 32
+
+config SYS_ICACHE_SIZE
+	default 65536
+
+config SYS_ICACHE_LINE_SIZE
+	default 32
+
+endif
