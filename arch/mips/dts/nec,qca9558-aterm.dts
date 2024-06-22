@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (C) 2024 INAGAKI Hiroshi <musashino.open@gmail.com>
+ */
+
+/dts-v1/;
+#include "qca955x.dtsi"
+
+/ {
+	model = "NEC Aterm series (QCA9558)";
+	compatible = "nec,qca9558-aterm", "qca,qca955x";
+
+	aliases {
+		serial0 = &uart0;
+	};
+
+	chosen {
+		stdout-path = "serial0:9600n8";
+	};
+};
+
+&uart0 {
+	clock-frequency = <40000000>;
+	status = "okay";
+};
+
+&xtal {
+	clock-frequency = <40000000>;
+};
+
+/* delete unused node to reduce dtb size */
+/delete-node/ &spi0;
