@@ -34,6 +34,15 @@ config SOC_QCA953X
 	help
 	  This supports QCA/Atheros qca953x family SOCs.
 
+config SOC_QCA955X
+	bool
+	select MIPS_TUNE_74KC
+	select SUPPORTS_BIG_ENDIAN
+	select SUPPORTS_CPU_MIPS32_R1
+	select SUPPORTS_CPU_MIPS32_R2
+	help
+	  This supports QCA/Atheros qca955x family SOCs.
+
 config SOC_QCA956X
 	bool
 	select MIPS_TUNE_74KC
