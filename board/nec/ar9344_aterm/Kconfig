@@ -27,4 +27,7 @@ config SYS_ICACHE_SIZE
 config SYS_ICACHE_LINE_SIZE
 	default 32
 
+config BOARD_NEC_AR9344_ATERM_FE
+	bool "Aterm devices based on AR9344 with FE ports"
+
 endif
