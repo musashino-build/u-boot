@@ -23,16 +23,27 @@ static void aterm_pinmux_config(void)
 	writel(0x2, regs + AR934X_GPIO_REG_FUNC);
 
 	/* Configure default GPIO OE/SET regs */
+#if defined(CONFIG_BOARD_NEC_AR9344_ATERM_FE)
+	writel(0x39b1f, regs + AR71XX_GPIO_REG_OE);
+	writel(0x040000, regs + AR71XX_GPIO_REG_SET);
+#else
 	writel(0x3db1f, regs + AR71XX_GPIO_REG_OE);
 	writel(0x142000, regs + AR71XX_GPIO_REG_SET);
+#endif
 
 	/* Configure pin multiplexing */
 	writel(0x00000000, regs + AR934X_GPIO_REG_OUT_FUNC0);
 	writel(0x0b0a0900, regs + AR934X_GPIO_REG_OUT_FUNC1);
 	writel(0x00180000, regs + AR934X_GPIO_REG_OUT_FUNC2);
-	writel(0x00000000, regs + AR934X_GPIO_REG_OUT_FUNC3);
 	writel(0x2f2e0000, regs + AR934X_GPIO_REG_OUT_FUNC4);
+
+#if defined(CONFIG_BOARD_NEC_AR9344_ATERM_FE)
+	writel(0x002b2a00, regs + AR934X_GPIO_REG_OUT_FUNC3);
+	writel(0x002c2d00, regs + AR934X_GPIO_REG_OUT_FUNC5);
+#else
+	writel(0x00000000, regs + AR934X_GPIO_REG_OUT_FUNC3);
 	writel(0x00000000, regs + AR934X_GPIO_REG_OUT_FUNC5);
+#endif
 }
 
 #ifdef CONFIG_DEBUG_UART_BOARD_INIT
